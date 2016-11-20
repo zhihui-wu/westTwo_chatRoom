@@ -1,0 +1,5 @@
+<?php
+
+$conn=mysql_connect("localhost","root","") or die("Á¬½ÓÊ§°Ü".mysql_error());
+mysql_select_db("chat_room",$conn) or die("Ñ¡ÔñÊý¾Ý¿âÊ§°Ü".mysql_error());
+mysql_query("set names utf8",$conn) or die("ÉèÖÃ±àÂëÊ§°Ü".mysql_error());
