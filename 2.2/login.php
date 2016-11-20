@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>西二在线聊天室</title>
 <style type="text/css">
 	div,body,h3,table,ul,li,h1{margin:0px;padding:0px;}
 	body{background-color:#cfcfcf;}

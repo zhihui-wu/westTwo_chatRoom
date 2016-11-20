@@ -9,7 +9,7 @@ if ($_POST['content']!=""){
     
     include_once 'conn.php';
     
-    $sql="select id from user where username={$username}";
+    $sql="select id from user where username='{$username}'";
     $res=mysql_query($sql,$conn);
     if($row=mysql_fetch_assoc($res)){
         $sql1="insert into content (uptime,content,user_id)value( NOW(),'{$content}','{$row['id']}')";

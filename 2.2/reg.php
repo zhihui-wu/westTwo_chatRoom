@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>西二在线聊天室</title>
 <style type="text/css">
 	div,body,h3,table,ul,li,h1{margin:0px;padding:0px;}
 	body{background-color:#cfcfcf;}
@@ -31,7 +31,7 @@
 	<li>户　名：<input type="text" name="username"/></li>
 	<li>密　码：<input type="password" name="password"/></li>
 	<li>&nbsp;&nbsp;<input type="reset" value="重新填写"/>&nbsp;&nbsp;&nbsp;
-					<input type="submit" value="用户注册"/>　</li>
+					<input type="submit" name="submit" value="用户注册"/>　</li>
 	<li class="error">
 	&nbsp;&nbsp;
 	<a href="login.php">前往登录</a>
@@ -41,6 +41,8 @@
 	    $errno=$_GET['errno'];
 	    if($errno==1){
 	        echo "&nbsp;&nbsp;该用户名已存在";
+	    }elseif ($errno==3){
+	        echo "密码或用户名不能为空";
 	    }
 	}
 	?>

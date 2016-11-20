@@ -12,17 +12,17 @@ if(isset($_POST['submit'])){
           include_once 'conn.php';
           
          
-          $sql="select password from user where username={$username}";
-          $res=mysql_query($sql,$conn);
-          while($row=mysql_fetch_assoc($res)){
+          $sql="select password from user where username='".$username."'";
+          $res=mysql_query($sql,$conn) or die(mysql_error());
+          $row=mysql_fetch_assoc($res);
+          while($row){
               if($row['password']==$password){
                   $_SESSION['username']=$username;
                   header("Location:chat_room.php");
                   exit();
               }  
           }
-          //header("Location:login.php?errno=1");
-          var_dump("$password");
+          header("Location:login.php?errno=1");
           exit();
           
           mysql_free_result($res);
