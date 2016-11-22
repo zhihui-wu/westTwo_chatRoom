@@ -1,5 +1,6 @@
 <?php
 
-$conn=mysql_connect("localhost","root","") or die("Á¬½ÓÊ§°Ü".mysql_error());
-mysql_select_db("chat_room",$conn) or die("Ñ¡ÔñÊý¾Ý¿âÊ§°Ü".mysql_error());
-mysql_query("set names utf8",$conn) or die("ÉèÖÃ±àÂëÊ§°Ü".mysql_error());
+//è¿žæŽ¥æ•°æ®åº“æ–‡ä»¶
+$conn=mysql_connect("localhost","root","") or die("ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½".mysql_error());
+mysql_select_db("chat_room",$conn) or die("Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½Ê§ï¿½ï¿½".mysql_error());
+mysql_query("set names utf8",$conn) or die("ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½Ê§ï¿½ï¿½".mysql_error());

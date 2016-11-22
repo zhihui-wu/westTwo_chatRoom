@@ -1,4 +1,5 @@
 ﻿<?php 
+    //判断是否有无session，如果没有，跳转回登陆页面
     session_start();
     if (!isset($_SESSION['username'])){
         header("Location:login.php");
@@ -35,7 +36,6 @@
 <body>
 	<div class="outside">
 	
-	
         <div class="header">
             <h1>&nbsp;西二在线聊天室&nbsp;</h1>
             <p>
@@ -48,8 +48,12 @@
         </div>
         
         
-        <div class="center">
         
+        
+        <div class="center">
+        	
+        	
+        	<!-- 快速发言 -->
             <div class="left">        	
             	<form action="chatAction.php" method="post">
             		&nbsp;
@@ -59,13 +63,17 @@
 				</form>
             </div>
             
+            <!-- 聊天记录列表 -->
             <div class="right">
                 <?php 
+                
+                //设置不现实提示错误，解决mysql未来会被移除提示
                 ini_set("display_errors", "Off");
                 error_reporting(E_ALL | E_STRICT);
                 
                 include_once 'conn.php';
                 
+                //分页设置
                 if (isset($_GET['page'])){
                     $page=$_GET['page'];
                 }else{
@@ -84,6 +92,7 @@
                     $res=mysql_query($sql,$conn);
                 }
                 
+                //内容分页显示
                 echo "<ul>";
                 while ($row=mysql_fetch_assoc($res)){
                     $sql2="select username from user where id={$row['user_id']}";
@@ -98,7 +107,7 @@
                 }; 
                 
                 
-                
+                //分页导航
                 echo "<li>";
                 echo "页次：".$page."/".$page_count."页&nbsp;记录：".$message_count."条&nbsp;";
                 if ($page!=1){
@@ -121,6 +130,7 @@
         </div>
         
         
+        
         <div class="footer">
             <?php 
             date_default_timezone_set("Asia/ShangHai");
@@ -128,7 +138,6 @@
             echo "<p>&nbsp;&nbsp;".$date."</p>";
             ?>
         </div>
-        
         
 	</div>
 </body>

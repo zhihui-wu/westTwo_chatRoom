@@ -1,9 +1,13 @@
 ﻿<?php 
+
+//判断是否有无session，如果没有，跳转回登陆页面
 session_start();
 if (!isset($_SESSION['username'])){
     header("Location:login.php");
 }
-if ($_POST['content']!=""){
+
+//判断发言是否为空，如果非空，则插入数据库中
+if (trim($_POST['content'])!=""){
     $username=$_POST['username'];
     $content=$_POST['content'];
     
