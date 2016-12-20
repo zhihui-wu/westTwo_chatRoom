@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])){
 //判断发言是否为空，如果非空，则插入数据库中
 if (trim($_POST['content'])!=""){
     $username=$_POST['username'];
-    $content=$_POST['content'];
+    $content=strip_tags($_POST['content']);
     
     include_once 'conn.php';
     

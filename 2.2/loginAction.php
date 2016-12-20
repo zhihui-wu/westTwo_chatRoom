@@ -1,6 +1,6 @@
 ﻿<?php
-
-//判断提交,是否有提交内容、是否为空
+session_start();
+//判断提交,是否有提交内容、是否为空 
 if(isset($_POST['submit'])){
     if($_POST['username']!="" && $_POST['password']!=""){
           $username=$_POST['username'];
@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
           $sql="select password from user where username='".$username."'";
           $res=mysql_query($sql,$conn) or die(mysql_error());
           $row=mysql_fetch_assoc($res);
-          while($row){
+          if($row){
               if($row['password']==$password){
                   $_SESSION['username']=$username;
                   header("Location:chat_room.php");

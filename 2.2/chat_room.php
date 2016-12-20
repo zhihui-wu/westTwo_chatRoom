@@ -98,7 +98,7 @@
                     $sql2="select username from user where id={$row['user_id']}";
                     $res2=mysql_query($sql2,$conn);
                     $row2=mysql_fetch_assoc($res2);
-                    echo "<p>".$row['content']."</p><p>(".$row2['username']."\t".$row['uptime'];
+                    echo "<p>".htmlspecialchars_decode($row['content'])."</p><p>(".$row2['username']."\t".$row['uptime'];
                     if ($_SESSION['username']==$row2['username']){
                         $delId=$row['id'];
                         echo "&nbsp<a href=chatDeleteAction.php?delId=".$delId."&page=".$page.">删除</a>";
